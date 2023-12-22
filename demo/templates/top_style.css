@@ -1,0 +1,212 @@
+body {
+  background-image: url("free.jpg");
+  background-size: cover;
+}
+
+h1 {
+  position: relative;
+  color: #158b2b;
+  font-size: 50px;
+  padding: 5px 0;
+  text-align: center;
+  margin: 1.2em 0;
+}
+h1:before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  width: 200px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid #a6ddb0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+/*その他と主な共通部分は省略*/
+
+a.btn-gradient {
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 100vh;
+  background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+a.btn-gradient span {
+  background-image: -webkit-gradient(linear, left top, right top, from(#93a5cf), to(#e4efe9));
+  background-image: -webkit-linear-gradient(left, #93a5cf 0%, #e4efe9 100%);
+  background-image: linear-gradient(to right, #93a5cf 0%, #e4efe9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a.btn-gradient:hover {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+
+.example{
+        text-align: center;
+}
+
+#original_1{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  margin: 0.5em 0;
+}
+
+#plain_1{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #AFEEEE;
+  margin: 0.5em 0;
+}
+
+#original_2{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  margin: 0.5em 0;
+}
+
+#plain_2{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #AFEEEE;
+  margin: 0.5em 0;
+}
+
+#original_3{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  margin: 0.5em 0;
+}
+
+#plain_3{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #AFEEEE;
+  margin: 0.5em 0;
+}
+
+#original_area{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #00FF7F;
+  margin: 0.5em 0;
+  border-radius: 10px;
+}
+
+#simple_area{
+  display: inline-block;
+  width: 50%;
+  padding: 0.5em;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #00FF7F;
+  margin: 0.5em 0;
+  border-radius: 10px;
+}
+
+.button{
+  text-align: right;
+}
+
+.test{
+  line-height:0.01;
+}
+
+
+.box-015 {
+    position: relative;
+    max-width: 400px;
+    margin: 1em auto;
+    padding: 1em 2.5em 1em 1.5em;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 20%);
+    background-color: #e0efff;
+    color: #333333;
+}
+
+.box-015::before,
+.box-015::after {
+    position: absolute;
+    content: '';
+}
+
+.box-015::before {
+    top: -15px;
+    right: 10px;
+    height: 50px;
+    width: 15px;
+    border: 3px solid #999;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 30%);
+    transform: rotate(10deg);
+}
+
+.box-015::after {
+    top: 0;
+    width: 10px;
+    right: 20px;
+    border: solid 5px #e0efff;
+}

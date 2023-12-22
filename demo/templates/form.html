@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!--
+  <link rel="stylesheet" href="/static/top_style.css">
+  -->
+  <link rel="stylesheet" href="/static/css/top_style.css">
+  <title>tool name</title>
+</head>
+<body>
+
+  <h1> 新聞記事平易化ツール</h1>
+  <!--<h3><p> 「ランダムセレクト」・「関連文を選択」は，平易化したい記事文を入力後に押してください．</p></h3>-->
+  <div class="box-015">
+    <h3>「ランダムセレクト」・「関連文を選択」は，<p>平易化したい記事文を入力後に押してください♪</h3>
+  </div>
+  <!--<div class="button">
+  <form action="C:\Users\Yamanouchi Hodaka\OneDrive\デスクトップ\大学院PBL\プログラム\demo\templates\test.php" method="POST" name="form_test">
+    <a href="#" onclick="document.form_test.submit();" type="subimit" class="btn btn-gradient"><span>ランダムセレクト</span></a>
+    <button type="submit" name="add">ランダムセレクト</button>
+  </form>
+</div>-->
+  <script>
+  // 更新検知
+  window.addEventListener('beforeunload', function(e){
+    // 更新される直前の処理 
+    document.getElementById("load_text").innerHTML = "読み込み中";
+  });
+
+  // ローカルストレージのキー
+  const localStorageKey = "mode_rem";
+
+  // ページ更新時に設定
+  window.onload = function(){
+    document.getElementById("load_text").innerHTML = "読み込み完了";
+    // ページ読み込み時に保存された値があれば適用する
+    var savedMode = localStorage.getItem(localStorageKey);
+    if (savedMode) {
+      // 保存された値があれば該当するラジオボタンを選択状態にする
+      var radioButtons = document.getElementsByName("mode");
+      for (var i = 0; i < radioButtons.length; i++) {
+          if (radioButtons[i].value === savedMode) {
+              radioButtons[i].checked = true;
+              break;
+          }
+      }
+    }
+  };
+
+  // ラジオボタンがクリックされたときに呼び出される関数
+  function saveRadioButtonValue(radioButton) {
+    var selectedMode = radioButton.value;
+    localStorage.setItem(localStorageKey, selectedMode);
+    // 確認用
+    console.log("Selected Mode: " + selectedMode);
+  }
+  </script>
+  <div style="display:inline-flex">
+    <form method="POST" action="/got_samples" name="form_fetch">
+      <textarea id="original_text" name="original_text" placeholder="簡単するテキストを入力してください" cols='70' rows='3'>{{original}}</textarea><br>
+      <b>サンプル文選択方法: </b>
+      <input type="radio" name="mode" value="random"  onclick="saveRadioButtonValue(this)"> ランダム
+      <input type="radio" name="mode" value="related" onclick="saveRadioButtonValue(this)"> 関連<br>
+      <a href="#" onclick="document.form_fetch.submit();" type="submit" class="btn btn-gradient"><span>サンプル文を取得</span></a>
+    </form>
+    <br>
+    <form method="POST" action="/input_reset" name="form_reset">
+      <a href="#" onclick="document.form_reset.submit();" type="submit" class="btn btn-gradient"><span>入力をリセット</span></a>
+      <!-- <button type="submit">入力をリセット</button> --> 
+    </form>
+  </div>
+  <p id ="load_text">読み込み中</p>
+  <form method="POST" action="/got_answer" name="form3">
+    <div>
+    <b> サンプル記事１</b>
+    </div>
+    <textarea id="original_1" name="sample_o1" placeholder="原文１" cols='70' rows='3' readonly>{{o1}}</textarea><br>
+    <textarea id="plain_1" name="sample_s1" placeholder="平易文１" cols='70' rows='3' readonly>{{s1}}</textarea><br>
+    <div>
+      <b> サンプル記事２</b>
+    </div>
+    <textarea id="original_2" name="sample_o2" placeholder="原文２" cols='70' rows='3' readonly>{{o2}}</textarea><br>
+    <textarea id="plain_2" name="sample_s2" placeholder="平易文２" cols='70' rows='3' readonly>{{s2}}</textarea><br>
+    <div>
+      <b> サンプル記事３</b>
+    </div>
+    <textarea id="original_3" name="sample_o3" placeholder="原文３" cols='70' rows='3' readonly>{{o3}}</textarea><br>
+    <textarea id="plain_3" name="sample_s3" placeholder="平易文３" cols='70' rows='3' readonly>{{s3}}</textarea><br>
+    <div>
+      <b> 平易化したい記事文(確認用)</b>
+    </div>
+    <textarea id="original_area" name="original_area" placeholder="簡単するテキストを入力してください" cols='70' rows='3' readonly>{{original}}</textarea><br>
+    <!-- <input id = "" type="submit" value="実行"> -->
+    <a href="#" onclick="document.form3.submit();" type="submit" class="btn btn-gradient"><span>実行</span></a>
+    <div>
+      <b> 平易化結果</b>
+    </div>
+    <textarea id="simple_area" name="simple_area" placeholder="簡単になったテキストが出力されます" cols='70' rows='3' readonly>{{simpled}}</textarea>
+  </form>
+
+
+  <div id = "" name = "error_message">{{error_message}}</div>
+</body>
+</html>
